@@ -1,0 +1,19 @@
+# Netlify build + runtime configuration.
+#
+# The Next.js Runtime (@netlify/plugin-nextjs v5) compiles `next build` output
+# into Netlify Functions and Edge Functions, so App Router SSR, server actions,
+# the tenant proxy (proxy.ts) and on-demand cache revalidation behave the same
+# way they do locally. Netlify installs the runtime automatically for Next.js
+# sites; it is declared here so the dependency is explicit in the repo.
+
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  # Next.js 16 needs Node 20.9+. Pinned so builds don't drift with Netlify's
+  # rolling default.
+  NODE_VERSION = "22"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
