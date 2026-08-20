@@ -2,7 +2,7 @@ import { createClient as createSupabaseClient } from "@supabase/supabase-js";
 
 /**
  * Service-role client. BYPASSES ROW LEVEL SECURITY — server-only, and only
- * for jobs RLS cannot express (Stripe webhooks, Vercel domain sync in
+ * for jobs RLS cannot express (Stripe webhooks, Netlify domain sync in
  * Phase 2). Never use it for reads or writes that RLS should govern.
  */
 export function createAdminClient() {
